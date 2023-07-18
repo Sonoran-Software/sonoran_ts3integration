@@ -6,5 +6,6 @@
     "ts3server_pass": "",
     "onduty_servergroup": "On Duty",
     "enforced_channels": ["test", "example"],
-    "logoutGraceTime": 5000
+    "logoutGraceTime": 5000,
+    "loginGraceTime": 5000
 }
