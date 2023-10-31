@@ -24,8 +24,33 @@ var clientsToRemove = [];
 // cache units - they might get removed before we process them
 var UnitCache = new Map();
 
-on('SonoranCAD::pushevents:UnitLogin', function(unit) {
-    for(let apiId of unit.data.apiIds) {
+// Check if the config values are set, or if we should use the server convars
+if (ts3config.ts3server_user == "" || ts3config.ts3server_pass == "") {
+    const ts3UserConvar = GetConvar("sonorants3_server_user", false);
+    const ts3PassConvar = GetConvar("sonorants3_server_pass", false);
+    const ts3HostConvar = GetConvar("sonorants3_server_host", false);
+    const ts3PortConvar = GetConvar("sonorants3_server_port", false);
+    const ts3QPortConvar = GetConvar("sonorants3_server_qport", false);
+    if (ts3UserConvar != undefined && ts3UserConvar != "") {
+        ts3config.ts3server_user = ts3UserConvar;
+    }
+    if (ts3PassConvar != undefined && ts3PassConvar != "") {
+        ts3config.ts3server_pass = ts3PassConvar;
+    }
+    if (ts3HostConvar != undefined && ts3HostConvar != "") {
+        ts3config.ts3server_host = ts3HostConvar;
+    }
+    if (ts3PortConvar != undefined && ts3PortConvar != "") {
+        ts3config.ts3server_port = ts3PortConvar;
+    }
+    if (ts3QPortConvar != undefined && ts3QPortConvar != "") {
+        ts3config.ts3server_qport = ts3QPortConvar;
+    }
+}
+
+
+on('SonoranCAD::pushevents:UnitLogin', function (unit) {
+    for (let apiId of unit.data.apiIds) {
         if (apiId.includes("=")) {
             clientsToAdd.push(apiId);
             UnitCache.set(unit.id, apiId);
@@ -38,7 +63,7 @@ on('SonoranCAD::pushevents:UnitLogin', function(unit) {
     }
 });
 
-on('SonoranCAD::pushevents:UnitLogout', function(id) {
+on('SonoranCAD::pushevents:UnitLogout', function (id) {
     let apiid = UnitCache.get(id);
     if (apiid != undefined) {
         clientsToRemove.push(apiid);
@@ -66,7 +91,7 @@ setInterval(() => {
                 clientsToRemove = [];
                 return;
             }
-            for(let id of clientsToRemove) {
+            for (let id of clientsToRemove) {
                 let client = await teamspeak.getClientByUid(id);
                 if (!client) {
                     emit("SonoranCAD::core:writeLog", "warn", "Was unable to locate client with ID " + id);
@@ -110,7 +135,7 @@ setInterval(() => {
                 clientsToAdd = [];
                 return;
             }
-            for(let id of clientsToAdd) {
+            for (let id of clientsToAdd) {
                 let client = await teamspeak.getClientByUid(id);
                 if (!client) {
                     emit("SonoranCAD::core:writeLog", "warn", "Was unable to locate client with ID " + id);
