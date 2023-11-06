@@ -33,23 +33,23 @@ if (ts3config.ts3server_user == "" || ts3config.ts3server_pass == "") {
     const ts3QPortConvar = GetConvar("sonorants3_server_qport", false);
     if (ts3UserConvar != undefined && ts3UserConvar != "") {
         ts3config.ts3server_user = ts3UserConvar;
-        emit("SonoranCAD::core:writeLog", "debug", "TS3 Integration: Using convar for ts3server_user instead of config value" )
+        emit("SonoranCAD::core:writeLog", "info", "TS3 Integration: Using convar for ts3server_user instead of config value" )
     }
     if (ts3PassConvar != undefined && ts3PassConvar != "") {
         ts3config.ts3server_pass = ts3PassConvar;
-        emit("SonoranCAD::core:writeLog", "debug", "TS3 Integration: Using convar for ts3server_pass instead of config value" )
+        emit("SonoranCAD::core:writeLog", "info", "TS3 Integration: Using convar for ts3server_pass instead of config value" )
     }
     if (ts3HostConvar != undefined && ts3HostConvar != "") {
         ts3config.ts3server_host = ts3HostConvar;
-        emit("SonoranCAD::core:writeLog", "debug", "TS3 Integration: Using convar for ts3server_host instead of config value" )
+        emit("SonoranCAD::core:writeLog", "info", "TS3 Integration: Using convar for ts3server_host instead of config value" )
     }
     if (ts3PortConvar != undefined && ts3PortConvar != "") {
         ts3config.ts3server_port = ts3PortConvar;
-        emit("SonoranCAD::core:writeLog", "debug", "TS3 Integration: Using convar for ts3server_port instead of config value" )
+        emit("SonoranCAD::core:writeLog", "info", "TS3 Integration: Using convar for ts3server_port instead of config value" )
     }
     if (ts3QPortConvar != undefined && ts3QPortConvar != "") {
         ts3config.ts3server_qport = ts3QPortConvar;
-        emit("SonoranCAD::core:writeLog", "debug", "TS3 Integration: Using convar for ts3server_qport instead of config value" )
+        emit("SonoranCAD::core:writeLog", "info", "TS3 Integration: Using convar for ts3server_qport instead of config value" )
     }
 }
 
