@@ -30,36 +30,25 @@ const ts3PassConvar = GetConvar("sonorants3_server_pass", false);
 const ts3HostConvar = GetConvar("sonorants3_server_host", false);
 const ts3PortConvar = GetConvar("sonorants3_server_port", false);
 const ts3QPortConvar = GetConvar("sonorants3_server_qport", false);
-if (ts3UserConvar != undefined && ts3UserConvar != "" && (ts3config.ts3server_user == "" || !ts3config.ts3server_user)) {
+if (ts3UserConvar != undefined && ts3UserConvar != "") {
     ts3config.ts3server_user = ts3UserConvar;
     emit("SonoranCAD::core:writeLog", "info", "TS3 Integration: Using convar for ts3server_user instead of config value")
-} else if (ts3UserConvar != undefined && ts3UserConvar != "") {
-    emit("SonoranCAD::core:writeLog", "warn", "TS3 Integration: Using config value for ts3server_user, but convar is set.")
 }
-if (ts3PassConvar != undefined && ts3PassConvar != "" && (ts3config.ts3server_pass == "" || !ts3config.ts3server_pass)) {
+if (ts3PassConvar != undefined && ts3PassConvar != "") {
     ts3config.ts3server_pass = ts3PassConvar;
     emit("SonoranCAD::core:writeLog", "info", "TS3 Integration: Using convar for ts3server_pass instead of config value")
-} else if (ts3PassConvar != undefined && ts3PassConvar != "") {
-    emit("SonoranCAD::core:writeLog", "warn", "TS3 Integration: Using config value for ts3server_pass, but convar is set.")
 }
-if (ts3HostConvar != undefined && ts3HostConvar != "" && (ts3config.ts3server_host == "" || !ts3config.ts3server_host)) {
+if (ts3HostConvar != undefined && ts3HostConvar != "") {
     ts3config.ts3server_host = ts3HostConvar;
     emit("SonoranCAD::core:writeLog", "info", "TS3 Integration: Using convar for ts3server_host instead of config value")
-} else if (ts3HostConvar != undefined && ts3HostConvar != "") {
-    emit("SonoranCAD::core:writeLog", "warn", "TS3 Integration: Using config value for ts3server_host, but convar is set.")
 }
-if (ts3PortConvar != undefined && ts3PortConvar != "" && (ts3config.ts3server_port == "" || !ts3config.ts3server_port)) {
+if (ts3PortConvar != undefined && ts3PortConvar != "") {
     ts3config.ts3server_port = ts3PortConvar;
     emit("SonoranCAD::core:writeLog", "info", "TS3 Integration: Using convar for ts3server_port instead of config value")
-} else if (ts3PortConvar != undefined && ts3PortConvar != "") {
-    emit("SonoranCAD::core:writeLog", "warn", "TS3 Integration: Using config value for ts3server_port, but convar is set.")
 }
-if (ts3QPortConvar != undefined && ts3QPortConvar != "" && (ts3config.ts3server_qport == "" || !ts3config.ts3server_qport)) {
+if (ts3QPortConvar != undefined && ts3QPortConvar != "") {
     ts3config.ts3server_qport = ts3QPortConvar;
     emit("SonoranCAD::core:writeLog", "info", "TS3 Integration: Using convar for ts3server_qport instead of config value")
-} else if (ts3QPortConvar != undefined && ts3QPortConvar != "") {
-    emit("SonoranCAD::core:writeLog", "warn", "TS3 Integration: Using config value for ts3server_qport, but convar is set.")
-
 }
 
 
