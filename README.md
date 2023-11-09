@@ -1,4 +1,4 @@
-# ts3integrat
+# ts3integration
 The TeamSpeak 3 integration plugin requires that users must be logged into the CAD police, fire, EMS, or Dispatch page in order to access specific voice channels.
 
 ### IMPORTANT: You do not need this plugin to use Sonoran Radio.
